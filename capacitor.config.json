@@ -1,0 +1,7 @@
+{
+  "appId": "com.stickfury.game",
+  "appName": "Stick Fury",
+  "webDir": "www",
+  "backgroundColor": "#000000",
+  "server": { "androidScheme": "https" }
+}
