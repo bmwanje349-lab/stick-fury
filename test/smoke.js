@@ -13,7 +13,7 @@ global.document = { getElementById: () => el(), querySelectorAll: () => [], docu
 const store = {};
 global.localStorage = { getItem: k => store[k] || null, setItem: (k, v) => { store[k] = v; } };
 global.requestAnimationFrame = noop;
-try { global.navigator = global.navigator || { maxTouchPoints: 0 }; } catch (e) {}
+try { delete global.navigator; } catch (e) {}
 
 const dir = path.join(__dirname, '..', 'www');
 const src = ['data.js', 'game.js', 'logic.js', 'render.js'].map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n');

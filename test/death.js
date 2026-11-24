@@ -3,7 +3,7 @@ const fs=require('fs'),path=require('path'),vm=require('vm');
 const noop=()=>{};
 const ctxStub=new Proxy({}, {get:(t,k)=>(k in t?t[k]:(k==='createLinearGradient'?()=>({addColorStop:noop}):noop)),set:(t,k,v)=>{t[k]=v;return true}});
 const el=()=>({style:{},classList:{add:noop,remove:noop,toggle:noop},addEventListener:noop,getContext:()=>ctxStub,getBoundingClientRect:()=>({left:0,top:0,width:960,height:540}),dataset:{},width:0,height:0});
-global.window=global;global.innerWidth=960;global.innerHeight=540;global.addEventListener=noop;
+global.window=global;delete global.navigator;global.innerWidth=960;global.innerHeight=540;global.addEventListener=noop;
 global.document={getElementById:()=>el(),querySelectorAll:()=>[],documentElement:{},addEventListener:noop,hidden:false};
 global.localStorage={getItem:()=>null,setItem:noop};global.requestAnimationFrame=noop;
 const dir=path.join(__dirname,'..','www');

@@ -18,7 +18,7 @@ fit();
 const rnd = (a, b) => a + Math.random() * (b - a);
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
 const sign = v => (v < 0 ? -1 : 1);
-const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+const isTouch = ('ontouchstart' in window) || (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0);
 
 /* ---------- audio (all synthesized, no files) ---------- */
 let AC = null, NB = null, muted = false;
